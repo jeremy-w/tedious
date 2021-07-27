@@ -163,6 +163,7 @@ function valueParse(parser: Parser, metadata: Metadata, options: InternalConnect
 
     case 'VarChar':
     case 'Char':
+      // TODO: handle fUTF8 collation flag. https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-tds/3d29e8dc-218a-42c6-9ba4-947ebca9fd7e
       const codepage = metadata.collation!.codepage;
       if (metadata.dataLength === MAX) {
         return readMaxChars(parser, codepage, callback);

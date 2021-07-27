@@ -386,6 +386,7 @@ class BulkLoad extends EventEmitter {
       throw new Error('Columns cannot be added to bulk insert after execution has started.');
     }
 
+    // TODO: UTF-8: Enable specifying / sniffing collation for column data. Bulk insert COLMETADATA includes TYPEINFO which includes COLLATION.
     const column = {
       type: type,
       name: name,

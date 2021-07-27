@@ -29,4 +29,6 @@ describe('Feature Ext Praser', () => {
     assert.isOk(token.fedAuth.equals(Buffer.from('bc')));
     assert.isTrue((await parser.next()).done);
   });
+
+  // TODO: Test UTF-8 %0x0A feature ext ack handling.
 });

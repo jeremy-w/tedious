@@ -99,6 +99,7 @@ const VarChar: { maximumLength: number } & DataType = {
       value = value.toString();
     }
 
+    // TODO: if utf-8 is supported, encode value as utf-8 rather than ascii.
     if (parameter.length! <= this.maximumLength) {
       if (Buffer.isBuffer(value)) {
         yield value;

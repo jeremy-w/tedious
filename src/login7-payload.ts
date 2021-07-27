@@ -411,6 +411,8 @@ class Login7Payload {
       }
     }
 
+    // TODO: Signal UTF-8 support: Value 0x0A, bit 0 must be set to 1. Added in TDS 7.4.
+
     buffers.push(Buffer.from([FEATURE_EXT_TERMINATOR]));
 
     return Buffer.concat(buffers);

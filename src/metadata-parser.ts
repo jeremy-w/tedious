@@ -70,6 +70,7 @@ function readCollation(parser: Parser, callback: (collation: Collation | undefin
     lcid |= collationData[1] << 8;
     lcid |= collationData[0];
 
+    // FIXME: verify UTF8 flag handled correctly.
     // This may not be extracting the correct nibbles in the correct order.
     let flags = collationData[3] >> 4;
     flags |= collationData[2] & 0xF0;

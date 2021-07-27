@@ -113,5 +113,7 @@ describe('Colmetadata Token Parser', () => {
     assert.strictEqual(token.columns[0].collation.sortId, 0x9a);
     assert.strictEqual(token.columns[0].colName, 'name');
     assert.strictEqual(token.columns[0].dataLength, length);
+
+    // TODO: Test UTF-8-encoded varchar handling.
   });
 });

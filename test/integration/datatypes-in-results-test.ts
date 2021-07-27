@@ -325,6 +325,8 @@ describe('Datatypes in results test', function() {
       'abcdШ'
     ],
 
+    // TODO: Test UTF-8 column collation handling with UTF-8 data provided.
+
     'should test varchar(max)': [
       "select cast('abc' as varchar(max))",
       'abc',
