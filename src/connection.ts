@@ -893,6 +893,12 @@ class Connection extends EventEmitter {
   fedAuthInfoToken: undefined | FedAuthInfoToken;
   /**
    * @private
+   * Set when FeatureExtAck for server UTF-8 support is received.
+   * Applicable only when tdsVersion >= 7.4.
+   */
+  utf8Support?: boolean;
+  /**
+   * @private
    */
   config: InternalConnectionConfig;
   /**
@@ -3599,8 +3605,7 @@ Connection.prototype.STATE = {
         this.transitionTo(this.STATE.FINAL);
       },
       featureExtAck: function(token) {
-        // TODO: Record UTF-8 support on connection.
-        // this.utf8Support = token.utf8Support;
+        this.utf8Support = token.utf8Support;
 
         const { authentication } = this.config;
         if (authentication.type === 'azure-active-directory-password' || authentication.type === 'azure-active-directory-access-token' || authentication.type === 'azure-active-directory-msi-vm' || authentication.type === 'azure-active-directory-msi-app-service' || authentication.type === 'azure-active-directory-service-principal-secret') {
